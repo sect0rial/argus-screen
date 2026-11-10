@@ -1,0 +1,38 @@
+{
+  "name": "argus-screen",
+  "version": "0.1.0",
+  "description": "Client examples and a stdio MCP server for the Screen Terminal name screening API (screen.unbackoffice.com).",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sect0rial/argus-screen.git"
+  },
+  "homepage": "https://screen.unbackoffice.com/docs",
+  "bin": {
+    "argus-screen": "mcp/dist/index.js"
+  },
+  "files": [
+    "mcp/dist",
+    "openapi.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsc -p mcp/tsconfig.json && node scripts/chmod-bin.mjs",
+    "typecheck": "tsc -p mcp/tsconfig.json --noEmit && tsc -p examples/typescript/tsconfig.json",
+    "start": "node mcp/dist/index.js",
+    "verify": "node scripts/verify-mcp.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "typescript": "^5.9.3"
+  }
+}
